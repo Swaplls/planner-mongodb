@@ -1,12 +1,12 @@
+from beanie import Document
 from pydantic import BaseModel, EmailStr
-from typing import Optional, List
 
-class User(BaseModel):
+class User(Document):
     email: EmailStr
     password: str
-    
-class NewUser(User):
-    pass
+
+    class Settings:
+        name = "users"
 
 class UserSignIn(BaseModel):
     email: EmailStr
